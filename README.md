@@ -18,6 +18,14 @@ Before you begin using this repository, make sure you have the following prerequ
 - [Firefox WebDriver](https://github.com/mozilla/geckodriver/releases) - Download and install the Firefox WebDriver.
 - [Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) - Download and install the Edge WebDriver.
 
+## Getting Started
+
+Open a terminal or command prompt.
+Change your current working directory to the root directory of your Maven project. For example:
+```bash
+cd /path/to/your/project
+```
+
 You also need Java and the necessary packages installed. You can do this by running the following command:
 ```bash
 mvn install
