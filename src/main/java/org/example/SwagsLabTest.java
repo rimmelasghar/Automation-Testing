@@ -71,8 +71,34 @@ public class SwagsLabTest {
             System.out.println("Add to Cart failed!");
         }
 
+        WebElement checkoutBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("checkout")));
+        checkoutBtn.click();
+
+        WebElement checkOutFirstName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("firstName")));
+        checkOutFirstName.sendKeys(parameter.checkoutUserFirstName);
+
+        WebElement checkOutLastName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("lastName")));
+        checkOutLastName.sendKeys(parameter.checkoutUserLastName);
+
+        WebElement checkOutPostalCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("postalCode")));
+        checkOutPostalCode.sendKeys(parameter.checkoutPostalCode);
+
+        WebElement continueBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("continue")));
+        continueBtn.click();
+
+        WebElement finishBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("finish")));
+        finishBtn.click();
+
+        System.out.println("<--- Check0ut Test: Status --->");
+        if (driver.getCurrentUrl().contains("checkout-complete.html")) {
+            System.out.println("Check-out successful!");
+        } else {
+            System.out.println("Check-out failed!");
+        }
+
         WebElement menuBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("react-burger-menu-btn")));
         menuBtn.click();
+
 
         WebElement logOutBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logout_sidebar_link")));
         logOutBtn.click();
