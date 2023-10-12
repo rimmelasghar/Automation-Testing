@@ -13,7 +13,7 @@ public class SwagsLabTest {
 
         //  Driver Setup
         Driver driverObj = new Driver();
-        WebDriver driver = driverObj.getDriver("EDGE");
+        WebDriver driver = driverObj.getDriver("FIREFOX");
 
         // Params Setup
         Params parameter = new Params();
@@ -38,12 +38,16 @@ public class SwagsLabTest {
         } else {
             System.out.println("Login failed!");
         }
+        String itemName = null;
+        String itemDescription = null;
+        String itemPrice = null;
 
         List<WebElement> inventoryItems = driver.findElements(By.cssSelector("div.inventory_item"));
         if (!inventoryItems.isEmpty()) {
             WebElement firstItem = inventoryItems.get(0);
-            String firstItemText = firstItem.getText();
-            System.out.println("Text of the first element: " + firstItemText);
+            itemName = firstItem.findElement(By.className("inventory_item_name")).getText();
+            itemDescription = firstItem.findElement(By.className("inventory_item_desc")).getText();
+            itemPrice = firstItem.findElement(By.className("inventory_item_price")).getText();
 
             WebElement addToCartBtn = firstItem.findElement(By.xpath("//button[contains(., 'Add to cart')]"));
             addToCartBtn.click();
@@ -54,8 +58,14 @@ public class SwagsLabTest {
         WebElement cartBtn = driver.findElement(By.className("shopping_cart_link"));
         cartBtn.click();
 
+        String cartItemName = driver.findElement(By.xpath("//div[@class='inventory_item_name']")).getText();
+        String cartItemDescription = driver.findElement(By.xpath("//div[@class='inventory_item_desc']")).getText();
+        String cartItemPrice = driver.findElement(By.xpath("//div[@class='inventory_item_price']")).getText();
+
         System.out.println("<--- Add to Cart Test: Status --->");
-        if (driver.getCurrentUrl().contains("cart.html")) {
+        if (driver.getCurrentUrl().contains("cart.html") && itemName.equals(cartItemName)
+                && itemDescription.equals(cartItemDescription) && itemPrice.equals(cartItemPrice)) {
+            System.out.println("Verified Item Details in Cart Section Successful!");
             System.out.println("Add to Cart successful!");
         } else {
             System.out.println("Add to Cart failed!");
