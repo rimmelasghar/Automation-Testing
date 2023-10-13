@@ -8,11 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-
 public class SwagsLabTest {
     public static void main(String[] args) {
 
-        //  Driver Setup
+        // Create a WebDriver instance (e.g., Chrome or Firefox)
         Driver driverObj = new Driver();
         WebDriver driver = driverObj.getDriver("FIREFOX");
 
@@ -99,7 +98,6 @@ public class SwagsLabTest {
 
         WebElement menuBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("react-burger-menu-btn")));
         menuBtn.click();
-
 
         WebElement logOutBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logout_sidebar_link")));
         logOutBtn.click();
