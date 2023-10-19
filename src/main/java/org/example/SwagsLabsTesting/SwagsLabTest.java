@@ -18,10 +18,10 @@ public class SwagsLabTest {
         // Params Setup
         Params parameter = new Params();
 
-        driver.get("https://www.saucedemo.com/");
+        driver.get(parameter.urlPath);
 
         // custom settings for Wait.
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, parameter.waitTime);
 
         WebElement userName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("user-name")));
         userName.sendKeys(parameter.userName);
@@ -54,7 +54,7 @@ public class SwagsLabTest {
         } else {
             System.out.println("No inventory items found.");
         }
-
+        
         WebElement cartBtn = driver.findElement(By.className("shopping_cart_link"));
         cartBtn.click();
 
@@ -108,7 +108,6 @@ public class SwagsLabTest {
         } else {
             System.out.println("Log-out failed!");
         }
-
         // Close the browser.
         driver.quit();
     }
