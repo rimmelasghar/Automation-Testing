@@ -1,0 +1,13 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "age": 30,
+  "email": "john.doe@example.com",
+  "address": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345"
+  },
+  "hobbies": ["Reading", "Hiking", "Swimming"]
+}

@@ -8,12 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PepsiTests {
-    public static String userNameValue = "";
-    public static String userPhoneNumber = "";
-    public static String userEmailAddress = "";
-    public static String userAddress = "";
-    public static int formEntries = 5;
-    public static void main(String[] args) throws InterruptedException {
+    public static String userNameValue = "Syed Muhammad Rimmel Asghar";
+    public static String userPhoneNumber = "3322593149";
+    public static String userEmailAddress = "rimmelasghar3@gmail.com";
+    public static String userAddress = "R-1245 Block-14, Federal B Area, Karachi";
+    public static int formEntries = 500;
+    public static void main(String[] args) throws Exception {
 
         WebDriver driver = Driver.getDriver("CHROME");
         driver.get("https://cloud.email-pepsico.com/PepsiPromo2023-MainPage");
@@ -48,7 +48,6 @@ public class PepsiTests {
         }
         System.out.println("Your Entries has been Done SuccessFully");
         driver.quit();
-
 
     }
 }
