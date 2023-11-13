@@ -9,14 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login {
     public static SwagsLabParams params= new SwagsLabParams();
-
-    public  static WebDriverWait wait;
     public static Method method;
-    public Login(Method method,WebDriver wait){
-        Login.method = method;
+    public Login(Method method){
+        this.method = method;
     }
     public static void loginTest(){
-
+        method.navigateToUrl(params.urlPath);
         method.enterText(params.userNameIdentifier,params.userName);
         method.enterText(params.userPasswordIdentifier,params.userPassword);
         method.clickElement(params.loginBtnIdentifier);
